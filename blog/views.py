@@ -86,3 +86,7 @@ def about(request):
 def blog(request):
     context = {'posts': Post.objects.all()}
     return render(request, 'blog/blog.html', context)
+
+
+def rmm_suite(request):
+    return render(request, 'blog/rmm-suite.html', {'title': 'About'})
