@@ -2,5 +2,113 @@
 {% block content %}
 <br>
 <br>
-<h1>RMM Suite</h1>
+
+<div>
+<br>
+<h4>Core Automation</h4>
+
+<div>
+<p>Core Automation provides a set of tightly-integrated components that allow an MSP to achieve a high degree of automation in their VSA platform. Unlike many other "power pack" products that focus on just one part of VSA, Core Automation covers everything that an MSP needs, including:</p>
+
+<ul>
+	<li>Over 300 Agent Procedures - all fully described and commented. Procedures are named to identify the platforms where it will run, the category, and specific purpose to make finding the right procedure quick and easy.</li>
+	<li>Monitor Sets for baseline and all common application monitoring. Each monitor set is uniquely identified and named so that it can be parsed by automation for further action based on source and priority.</li>
+	<li>Patch Policies for Patch Management that provide an effective yet easily managed solution to endpoint updating. Our patch solution takes server application hierarchies into account and allows proper boot sequences inside of regulated change windows. Manage server patch schedules with an Excel Spreadsheet!</li>
+	<li>Hundreds of System Policies control much of the typical administrative tasks of the RMM platform.
+	<ul>
+		<li>Agent configuration, including automated onboarding.</li>
+		<li>Patching and Application Updating via Ninite Pro</li>
+		<li>Daily Operations - Audit, Maintenance, and Smart Monitoring</li>
+		<li>Automatic, audit-based configuration of Monitoring</li>
+	</ul>
+	</li>
+	<li>Automation takes exceptions into account and provides simple and direct methods to override the automation.</li>
+	<li>A well-structured set of security roles to appropriately allow VSA administration.</li>
+	<li>An effective organizational structure that allows automation to apply by how a system is used, not simply by it's O/S.</li>
+</ul>
+
+<br><br>
+</div>
+
+<h4>Enhanced Maintenance & Monitoring</h4>
+
+<div>
+<p>EMM utilizes custom applications that leverage Kaseya for delivery, execution, and monitoring. This allows these tools to run autonomously, regardless of network connectivity or user actions.</p>
+
+<h6>Daily Maintenance</h6>
+
+<p>Daily Maintenance provides a number of standard capabilities designed to keep an endpoint running optimally. The standard maintenance tools can be easily augmented by the MSP using any script or command. The maintenance tasks use a global configuration that suits most situations, but custom configurations can be deployed to specific customers, sites, or even agents, managed directly from the VSA server. The standard maintenance tasks include:</p>
+
+<ul>
+	<li>Temp File Cleanup - cleans common temp and log file locations.</li>
+	<li>Disk Defrag Utility - interfaces with standard and third-party tools, bypasses SSDs.</li>
+	<li>Local Backup - copies common user files such as favorites, shortcuts, templates, and printer configuration settings to an alternate location to allow rapid recovery in the event of corruption or accidental deletion.</li>
+	<li>Check Disk - Performs a SMART analysis of all volumes and reports predictive failures, then runs a CHKDKS to check for errors. If errors are reported, the user is notified and a full CHKDSK with repair and reboot is scheduled to attempt an automatic remediation.</li>
+	<li>Reboot - notifies the user, requests permission, and then reboots the system on a specific schedule.</li>
+	<li>Uptime Check - notifies the user if the agent uptime exceeds a specific threshold and recommends that the system be restarted. After reaching a second uptime threshold, generates an alert so the MSP can take appropriate action.</li>
+	<li>Schedule Task - allows maintenance to precisely schedule tasks using the built-in Task Scheduler.</li>
+	<li>Display Message - allows the MSP to display messages and reminders to the end-user via an MSP-branded interface.</li>
+	<li>Registry Update - allows quick deployment of registry settings.</li>
+</ul>
+
+<p>All maintenance tasks can be controlled by environmental conditions such as the presence ore absence of files, registry keys or values, or the presence of specific applications/versions.</p>
+
+<h6>Smart Monitors</h6>
+
+<p>Smart Monitors are applications which run on the endpoint to intelligently monitor conditions and send alerts when appropriate. Smart Monitors employ three key technologies:</p>
+
+<ul>
+	<li><strong>Intelligent Threshold Setting </strong>- thresholds are set based on environmental conditions. For disk space monitors, this means that every disk on every agent has a custom threshold, virtually eliminating noise from alerts using a "one size fits none" percentage method.</li>
+	<li><strong>Transient Event Suppression</strong> - If a non-critical condition is detected, the generation of an alert is suppressed for a period of time sufficient for self-remediation actions to try and resolve the condition. If the condition persists, or reaches a critical threshold, the alert is generated immediately.</li>
+	<li><strong>Self Remediation</strong> - many smart monitors have the ability to resolve common conditions, either directly or through integration with the maintenance tools. When a self-remediation task is successful, the event is logged locally and no alert is sent to VSA.</li>
+</ul>
+
+<p>There are several available Smart Monitors, with more being considered and developed all the time. The current Smart Monitors include:</p>
+
+<ul>
+	<li><strong>Anti-Virus Security Check </strong>- verifies that an AV product is installed, running, and up-to-date. Can be configured to alert when a <em>preferred</em> antivirus product is not present and running, even if an alternate product is. Can initiate a definition update command for most popular AV products, and this text-based configuration allows new products to be easily added.</li>
+	<li><strong>Disk Capacity Check</strong> - runs hourly to monitor each volume. By monitoring volumes, the Smart Monitor can track both disk drives and mounted volumes. Tiny disks and volumes used for recovery partitions can be ignored. Each volume is automatically assigned a custom threshold based on an algorithm that adjusts based on the volume size. These threshold calculations can be adjusted to accommodate for special situations. Self Remediation is supported by running the Daily Maintenance disk cleanup utility in "aggressive" mode. The Smart Monitor also analyzes disk utilization and can issue a warning alert when it projects utilization will cross the threshold within 30 days.</li>
+	<li><strong>Server Boot Monitor </strong>- checks for two different conditions after a server boot. If the server remains in Safe Mode for a defined period after booting, an alert is generated as this will usually require action and an additional restart. The second check determines if the reboot occurred during business operating hours.</li>
+	<li><strong>Network Time Check</strong> - for domain member devices, it verifies that time sync with the domain controllers is within reasonable limits. For the PDC Emulator, it confirms that time is reasonably in-sync with public NTP servers, and that it has an appropriate NTP-based W32Time service configuration. Self-remediation capabilities include performing a time resync and correcting the W32Time service configuration.</li>
+	<li><strong>Internet Failover </strong>- reports when a redundant Internet connection switches between primary or backup connections. This can be used to send customer notifications or even initiate Agent Procedures to modify configurations needed to continue operations through the new connection gateway.</li>
+</ul>
+
+<p>Like the Daily Maintenance, Smart Monitors support a full range of configuration settings that can be defined globally, per customer, site, or even per-agent.</p>
+</div>
+<br><br>
+<h4>Intelligent Ticket Processing</h4>
+
+<div>
+<p>ITP is an advanced Alert Processor that interfaces between Kaseya VSA and the MSP's PSA. It's intelligence eliminates "nuisance" events such as when a UPS starts a self-test, rewrites other text-based alerts into parsable headers for additional processing, and executes Agent Procedures that can remediate the condition. The key features of ITP include:</p>
+
+<ul>
+	<li>Standardized communication between VSA and the PSA. Supports any PSA with an email-based intake, and many PSAs are supported via their APIs.</li>
+	<li>Easily maps alerts or alert categories to Agent Procedures for remediation, and can even pass arguments to the procedures.</li>
+	<li>Can query VSA for additional data, parse the alert header and body to determine the next course of action - if any. The CANCEL option allows informational events to be dropped, significantly reducing noise in the help desk ticketing system.</li>
+	<li>Detects and escalates conditions where remediation procedures run repeatedly. These result in an escalation of priority for the event, identification of the repeating status, and prevention of additional remediation attempts for a period of time.</li>
+	<li>Supports after-hours alerting and notification via "smart paging" services. The on-call team always receives a detailed email for high-priority events. Notifications can be controlled based on a wide variety of conditions, such as:
+	<ul>
+		<li>Priority of event - events over a specific priority can initiate notifications.</li>
+		<li>Customer coverage hours - alerts within coverage hours result in immediate notifications, while those that occur outside of coverage queue an alert for early the next morning.</li>
+		<li>Weekday/weekend/holiday status - coverage and notification can be adjusted accordingly.</li>
+		<li>Help desk is staffed & operating - can restrict alerts to when help desk is staffed, limit notifications to when the help desk is closed.</li>
+	</ul>
+	</li>
+	<li>Supports "tenancy", allowing complete configuration of notifications, PSA integration, and holiday and hours of operation on a per-organization basis. This is perfect for customers who's IT team uses the MSP VSA and performs first-line support.</li>
+</ul>
+</div>
+</div>
+
+<p>The RMM Suite has been deployed in production since 2016, and users have seen significant improvements in operation while reducing alert-based tickets in their help desk. One customer reported a nearly 63% reduction in help desk tickets over the prior year after deploying the RMM Suite. Our workflow documents, which can be applied to many PSA platforms, help to categorize events, apply ticket notes to guide the help desk manager with dispatching, and remind the engineers what the automation has already performed so those diagnostic steps are not repeated. These often result in dramatic reductions in "time on tickets" by the engineers, which reduces costs and improves response times for successful remediation events.</p>
+<br><br>
+<h5>RMM Suite Technical Requirements</h5>
+
+<p>The RMM Suite requirements are essentially the same as the Kaseya VSA Server requirements, plus the need for agents to communicate with our cloud servers for licensing and product updates.</p>
+
+<ul>
+	<li>Access to the VSA server via HTTPS protocol (port 443) for API access by agents.</li>
+	<li>Access by agents to the auth.mspbuilder.com host for license validation</li>
+	<li>Access by agents to the dist.mspbuilder.com host product downloads and updates, or equivalent regional CDR servers - mspbuilder.azureedge.net.</li>
+</ul>
+<br><br>
 {% endblock content %}
