@@ -1,0 +1,51 @@
+      <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
+        <div class="container">
+          <a class="navbar-brand mr-4" href="{% url 'blog-home' %}">
+            <img alt="MSP Builder" src="/media/MSPB_Logo-Home.png">
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarToggle">
+            <ul class="navbar-nav mr-auto">
+              <li><a class="nav-item nav-link text-dark" href="{% url 'blog-home' %}">Home</a></li>
+              <li class="nav-item dropdown">
+                <a class="nav-item nav-link text-dark dropdown-toggle" href="{% url 'blog-rmmsuite' %}" id="rmmDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">RMM Suite</a>
+                <div class="dropdown-menu" aria-labelledby="rmmDropdown">
+                  <a class="dropdown-item" href="#">Administration Tools</a>
+                  <a class="dropdown-item" href="#">How Do I...</a>
+                  <a class="dropdown-item" href="#">Pre-Sale FAQs</a>
+                  <a class="dropdown-item" href="{% url 'blog-rmmsuite' %}">Technical Specifications</a>
+                  <a class="dropdown-item" href="#">Technician Manuals</a>
+                  <a class="dropdown-item" href="#">Support Desk</a>
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-item nav-link text-dark dropdown-toggle" href="{% url 'blog-about' %}" id="aboutDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  About Us
+                </a>
+                <div class="dropdown-menu" aria-labelledby="rmmDropdown">
+                 <a class="dropdown-item" href="{% url 'blog-about' %}">General Info</a>
+                 <a class="dropdown-item" href="#">Professional Services</a>
+                 <a class="dropdown-item" href="{% url 'blog-staff' %}">Our Team</a>
+                </div>
+              </li>
+
+              <li><a class="nav-item nav-link text-dark" href="{% url 'blog-blog' %}">Blog</a></li>
+              <li><a class="nav-item nav-link text-dark" href="{% url 'blog-home' %}">Contact Us</a></li>
+            </ul>
+            <!-- Navbar Right -->
+            <div class="navbar-nav">
+              {% if user.is_authenticated %}
+                <a class="nav-item nav-link text-dark" href="{% url 'blog-home' %}">Forum</a>
+                <a class="nav-item nav-link text-dark" href="{% url 'post-create' %}">New+</a>
+                <a class="nav-item nav-link text-dark" href="{% url 'profile' %}">Profile</a>
+                <a class="nav-item nav-link text-dark" href="{% url 'logout' %}">Logout</a>
+              {% else %}
+                <a class="nav-item nav-link text-dark" href="{% url 'register' %}">Register</a>
+                <a class="nav-item nav-link text-dark" href="{% url 'login' %}">Login</a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </nav>

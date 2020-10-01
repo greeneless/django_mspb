@@ -83,10 +83,14 @@ def about(request):
     return render(request, 'blog/about.html', {'title': 'About'})
 
 
+def staff(request):
+    return render(request, 'blog/about/staff.html', {'title': 'Our Team'})
+
+
 def blog(request):
     context = {'posts': Post.objects.all()}
     return render(request, 'blog/blog.html', context)
 
 
 def rmm_suite(request):
-    return render(request, 'blog/rmm-suite.html', {'title': 'About'})
+    return render(request, 'blog/rmm-suite.html', {'title': 'Tech Specs'})
