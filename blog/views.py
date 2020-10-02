@@ -83,6 +83,10 @@ def about(request):
     return render(request, 'blog/about.html', {'title': 'About'})
 
 
+def administration(request):
+    return render(request, 'blog/rmm-suite/administration.html', {'title': 'Admin Tools'})
+
+
 def contact(request):
     return render(request, 'blog/contact.html', {'title': 'Contact Us'})
 
