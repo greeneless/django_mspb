@@ -20,6 +20,7 @@ urlpatterns = [
     path('post/<int:pk>/delete', PostDeleteView.as_view(), name='post-delete'),
     path('about/', views.about, name='blog-about'),
     path('rmm-suite/administration', views.administration, name='blog-rmmsuite-administration'),
+    path('rmm-suite/how-do-i', views.how_do_i, name='blog-rmmsuite-how-do-i'),
     path('about/staff', views.staff, name='blog-staff'),
     path('contact/', views.contact, name='blog-contact'),
     path('rmm-suite/', views.rmm_suite, name='blog-rmmsuite'),

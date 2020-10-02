@@ -91,6 +91,10 @@ def contact(request):
     return render(request, 'blog/contact.html', {'title': 'Contact Us'})
 
 
+def how_do_i(request):
+    return render(request, 'blog/rmm-suite/how-do-i.html', {'title': 'How Do I...'})
+
+
 def staff(request):
     return render(request, 'blog/about/staff.html', {'title': 'Our Team'})
 
