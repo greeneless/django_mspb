@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'blog.apps.BlogConfig',
+    'forum.apps.ForumConfig',
     'users.apps.UsersConfig',
     'crispy_forms',
     'django.contrib.admin',
@@ -57,7 +58,7 @@ ROOT_URLCONF = 'django_launch.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
