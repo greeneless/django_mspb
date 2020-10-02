@@ -91,6 +91,10 @@ def contact(request):
     return render(request, 'blog/contact.html', {'title': 'Contact Us'})
 
 
+def documentation(request):
+    return render(request, 'blog/rmm-suite/documentation.html', {'title': 'Technician Manuals'})
+
+
 def how_do_i(request):
     return render(request, 'blog/rmm-suite/how-do-i.html', {'title': 'How Do I...'})
 
