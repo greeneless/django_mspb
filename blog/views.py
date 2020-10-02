@@ -83,6 +83,10 @@ def about(request):
     return render(request, 'blog/about.html', {'title': 'About'})
 
 
+def contact(request):
+    return render(request, 'blog/contact.html', {'title': 'Contact Us'})
+
+
 def staff(request):
     return render(request, 'blog/about/staff.html', {'title': 'Our Team'})
 

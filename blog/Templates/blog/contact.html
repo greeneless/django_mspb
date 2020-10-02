@@ -1,0 +1,52 @@
+{% extends "blog/base.html" %}
+{% block content %}
+<br><br>
+<div>
+  <h4>Contact Us</h4>
+</div>
+<br><br>
+<br><br>
+<div>
+  <h4>Pre-Sale FAQs</h4>
+  <h5>We're an enterprise user of VSA, not an MSP. Will it work for us?</h5>
+  <p>The tool helps enterprise IT teams just as much as MSPs. One of our corporate clients is a construction company in NYC that has about 200 endpoints and several jobsite locations. The configuration and administration for an enterprise environment is usually a bit easier to integrate because you don’t have multiple client configurations to deal with. We can still help leverage custom automation across departments or sites, which is more typical in enterprise deployments.</p>
+  <h5>Does this work in a SaaS environment?</h5>
+  <p>Yes, our entire RMM Suite is fully supported in SAAS. The ITP service must run on your own server, however, when used with a SAAS solution.
+  <h5>What does it cost?</h5>
+  <p>At just $199 monthly plus $0.34 per agent, the RMM Suite is exceptionally cost effective for even the smallest MSP or IT department. The RMM Suite has a one-time cost of $2,995 (US) which includes installation, configuration assistance, and self-paced training. All training classes are available on-demand for as long as you remain a customer as your staff grows or wants a refresher course at no additional cost. are The licensing is billed monthly, with price breaks at 2500, 5000, 7500, 10000, and 25000 agents.</p>
+  <h5>Are there any contracts that I'll be locked into?</h5>
+  <p>No! The RMM Suite components are subscription-based - stop using the software and we stop billing - you're in total control. The core Kaseya components that we provide, including views, policies, and procedures will continue to function. Note that the deferred payment plans for the implementation are a payment contract and must be paid in full.</p>
+  <h5>Is there a trial period available?</h5>
+  <p>Unfortunately, due to the level of integration and training we provide during setup, we can't offer a trial.</p>
+  <h5>What about installation?</h5>
+  <p>The entire suite is professionally installed and configured by the MSP Builder professional services team. The MSP must perform some planning and customization to accommodate environment and customer-specific needs - typically 4-6 hours. Our team guides you through the customization and initial product activation and provides support as you continue to activate more clients with automation.</p>
+  <p>We suggest that existing VSA platforms migrate 1-2 clients and wait a week before migrating the rest to validate the customizations, while fresh VSA installs using our solution can go live with clients as they come on-board.
+  <h5>What is the lead time for installation?</h5>
+  <p>Depending on the number of customers in the queue, installation is usually scheduled 1-2 weeks in advance. This provides sufficient time for the MSP to assess customer requirements, collect information, and provide everything needed for a successful installation. A full implementation on a fresh VSA can be completed in just 2-3 days. An active VSA typically takes 7-10 days to complete due to the additional planning and configuration related to the existing customers.</p>
+  <h5>Does it interface with a PSA?</h5>
+  <p>The ITP service is designed as an intelligent interface between VSA and your PSA. We support any PSA that can receive a ticket request via email, and are developing advanced, API-based interfaces for several PSA platforms that will provide additional capabilities.</p>
+  <h5>Does it affect Kaseya support services?</h5>
+  <p>Not at all. The RMM Suite consists of highly tuned and customized VSA components, with added external tools. We don't modify the VSA platform in any way. If there is any question that our components could be contributing to a VSA issue, we work directly with you and Kaseya support to identify and resolve the situation. We are a Kaseya Certified TAP member.</p>
+  <h5>What about documentation?</h5>
+  <p>The entire RMM Suite has complete and thorough Operation & Customization Guides that detail the operation of the product. You can view them on the Documentation page. In addition, we provide many ancillary documents that help the operation and organization of your RMM platform, including end-user (client) documentation and notifications and a complete "How Do I?" library.</p>
+  <h5>Do you offer training?</h5>
+  <p>Yes, in fact, it's not an option. We provide 6 hours of individual or small-group (web-based video-conference) training as part of the implementation. We provide additional training resources, including access to our Self-Paced Training service, which covers our products, Operation and Best Practices for VSA, and several generic IT Best Practice topics.</p>
+  <h5>How often is the system updated?</h5>
+  <p>One of our Core Principals is "continuous improvement". To that end, we've developed the product to obtain updates directly from our cloud server. The endpoints check daily and download updates as soon as they are released into production. In some cases, VSA components such as procedures, monitor sets, or policies need to be updated or imported. We provide detailed instructions for these updates, and the MSP Builder support team performs regular updates and health-checks of your platform as part of your licensed support.</p>
+  <h5>What kind of improvements should I see in my operation?</h5>
+  <p>Increasing productivity through automation is what we’re all about, and we deliver it at a fair price, to boot. We use this solution in our own MSP practice. A year after switching from an ordinary VSA platform to one with all of our automation, we found that we had 62% fewer alerts hit the help desk and our engineers spent almost 50% less time on alert tickets (because the basic remediation steps were automated). We were able to increase our managed endpoints from 1200 to over 3000 without increasing help-desk staff. We still have just 3 engineers on help desk handling alerts and responding to live customer calls - a ratio that's more than twice the industry average. Many "nuisance" calls from customers are reduced or eliminated through daily maintenance.</p>
+</div>
+
+Here are some hard numbers from Baroan Technologies:
+<ul><li>Oct. 2014 - No automation
+-  106 clients totalling approximately 1200 endpoints. Averaging 200 alerts per day (about 1 in 6 or 16.7%) - 5 help desk agents</li>
+<li>Dec. 2015 - Core Automation
+- 82 clients totalling approximately 1800 endpoints. Averaging 75 alerts per day (about 1 in 24, or 4.2%) - 3 help desk agents</li>
+<li>Dec. 2017 - Core Automation & EMM & ATP
+    - 96 clients totalling approximately 3100 endpoints. Averaging 16 alerts per day (about 1 in 188, or 0.5%) - 3 help desk agents</li></ul>
+<p>Onboarding time is also significantly reduced - in about 6 minutes per agent, the agent is configured, tools are deployed, patching is configured and scheduled*, application updating is scheduled, a custom audit is completed, and monitors based on applications  and services found by the audit are applied.
+*Servers do not have patches scheduled automatically, but standard configuration settings are applied. Server schedules are defined via a custom field, applied manually based on server inter-dependencies.</p>
+
+<p>Our customers find similar results - I had sent an update notice to our first customer recently and asked him how things were going. He had been using this solution for around 18 months. Here’s one of the comments from his response: <br><br><b>“The operational efficiencies that were introduced with the product were absolutely worth the cost. I can’t imagine how many hours it would have taken us to put together something comparable on our own.”</b></p>
+
+{% endblock content %}
