@@ -2,11 +2,11 @@
 {% block content %}
 <br><br>
 <body>
-        <h2 class="jumbotron">
+        <h2>
             Currently active forums: {{ count }}
             <form method="POST" action="{% url 'add-in-forum' %}">
                 {% csrf_token %}
-            <button class="btn btn-success" style="width:fit-content; padding: 4px; margin:10px;">Add more</button>
+            <button class="btn btn-primary" style="width:fit-content; padding: 4px; margin:10px;">Add more</button>
             </form>
         </h2>
             <div class="card-columns" style="padding: 10px; margin: 20px;"></div>
@@ -22,10 +22,9 @@
                                 <p>{{ forum.description }}</p>
                             </h5>
                             <hr>
-                            <p> By: {{ forum.author }}</p>
-                            email- {{ forum.email }}
+                            <p> Posted by: {{ forum.author }}</p>
                             <hr>
-                            <h4>Views from other users</h4>
+                            <h5>Discussion</h5>
                             {% for discuss in discussions %}
                             {% for objs in discuss %}
                             {% if objs.forum == forum %}
@@ -36,7 +35,9 @@
                             {% endfor %}
                             <form method="POST" action="{% url 'add-in-discussion' %}">
                                 {% csrf_token %}
-                            <button class="btn btn-success" style="width:fit-content; padding: 4px; margin:10px;">Add more</button>
+                                <br>
+                            <button class="btn btn-primary" style="width:fit-content; padding: 4px; margin:10px;">Reply</button>
+                                <br>
                             </form>
                         </div>
                 </div>

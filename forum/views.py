@@ -85,8 +85,10 @@ def forum(request):
     forums = Forum.objects.all()
     count = forums.count()
     discussions = [i.discussion_set.all() for i in forums]
+    title = 'Forum'
 
     context = {
+        'title': title,
         'forums': forums,
         'count': count,
         'discussions': discussions
