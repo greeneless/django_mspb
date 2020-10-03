@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 
 
+# Not currently used
 class ForumPost(models.Model):
     title = models.CharField(max_length=256)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
