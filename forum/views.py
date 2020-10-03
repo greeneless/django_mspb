@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.models import User
 from django.views.generic import (
@@ -9,6 +9,7 @@ from django.views.generic import (
     DeleteView,
 )
 from .models import ForumPost
+from .forms import *
 
 
 class PostListView(ListView):
@@ -74,8 +75,42 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
             return True
         return False
 
+#
+# def forum(request):
+#     context = {'posts': ForumPost.objects.all()}
+#     return render(request, 'forum/forum.html', context)
+
 
 def forum(request):
-    context = {'posts': ForumPost.objects.all()}
-    return render(request, 'forum/forum.html', context)
+    forums = Forum.objects.all()
+    count = forums.count()
+    discussions = [i.discussion_set.all() for i in forums]
 
+    context = {
+        'forums': forums,
+        'count': count,
+        'discussions': discussions
+    }
+    return render(request, 'forum.html', context)
+
+
+def add_in_forum(request):
+    form = CreateInForum()
+    if request.method == 'POST':
+        form = CreateInForum(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+    context = {'form': form}
+    return render(request, 'add_in_forum.html', context)
+
+
+def add_in_discussion(request):
+    form = CreateInDiscussion()
+    if request.method == 'POST':
+        form = CreateInDiscussion(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+    context = {'form': form}
+    return render(request, 'add_in_discussion.html', context)

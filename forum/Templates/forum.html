@@ -1,5 +1,49 @@
-{% extends "blog/base.html" %}
+{% extends 'blog\base.html' %}
 {% block content %}
 <br><br>
-<h4>Public Forum</h4>
+<body>
+        <h2 class="jumbotron">
+            Currently active forums: {{ count }}
+            <form method="POST" action="{% url 'add-in-forum' %}">
+                {% csrf_token %}
+            <button class="btn btn-success" style="width:fit-content; padding: 4px; margin:10px;">Add more</button>
+            </form>
+        </h2>
+            <div class="card-columns" style="padding: 10px; margin: 20px;"></div>
+
+
+            {% for forum in forums %}
+
+                <div class="card box container">
+                    <br>
+                    <h5 class="card-title">
+                        <a href='{{ forum.link }}'><h3>{{ forum.topic }}</h3></a>
+                        <div class="card-body container">
+                                <p>{{ forum.description }}</p>
+                            </h5>
+                            <hr>
+                            <p> By: {{ forum.author }}</p>
+                            email- {{ forum.email }}
+                            <hr>
+                            <h4>Views from other users</h4>
+                            {% for discuss in discussions %}
+                            {% for objs in discuss %}
+                            {% if objs.forum == forum %}
+                               {{ objs.discuss }}
+                               <br>
+                            {% endif %}
+                            {% endfor %}
+                            {% endfor %}
+                            <form method="POST" action="{% url 'add-in-discussion' %}">
+                                {% csrf_token %}
+                            <button class="btn btn-success" style="width:fit-content; padding: 4px; margin:10px;">Add more</button>
+                            </form>
+                        </div>
+                </div>
+            </div>
+            <br>
+
+            {% endfor %}
+</body>
+</html>
 {% endblock content %}

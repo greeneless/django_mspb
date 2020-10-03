@@ -12,7 +12,9 @@ from .views import (
 from . import views
 
 urlpatterns = [
-    path('forum/', views.forum, name='forum-forum'),
+    path('forum/', views.forum, name='forum'),
+    path('forum/add', views.add_in_forum, name='add-in-forum'),
+    path('forum/discuss', views.add_in_discussion, name='discuss-in-forum'),
     path('forum/user/<str:username>', UserPostListView.as_view(), name='user-posts'),
     path('forum/post/<int:pk>/', PostDetailView.as_view(), name='post-detail'),
     path('forum/post/new/', PostCreateView.as_view(), name='post-create'),
