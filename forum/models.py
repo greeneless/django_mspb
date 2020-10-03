@@ -19,15 +19,18 @@ class ForumPost(models.Model):
 
 # parent model
 class Forum(models.Model):
-    author = models.CharField(max_length=256, default="anonymous")
-    email = models.CharField(max_length=256, null=True)
+    # author = models.ForeignKey(User, on_delete=models.CASCADE, default=0)
+    # email = models.CharField(max_length=256, null=True)
     topic = models.CharField(max_length=256)
     description = models.CharField(max_length=2048, blank=True)
-    link = models.CharField(max_length=256, null=True)
-    date_posted = models.DateTimeField(default=timezone.now, null=True)
+    # link = models.CharField(max_length=256, null=True)
+    # date_posted = models.DateTimeField(default=timezone.now, null=True)
 
     def __str__(self):
         return str(self.topic)
+
+    def get_absolute_url(self):
+        return reverse('post-detail', kwargs={'pk': self.pk})
 
 
 # child model

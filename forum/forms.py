@@ -5,7 +5,10 @@ from .models import *
 class CreateInForum(ModelForm):
     class Meta:
         model = Forum
-        fields = "__all__"
+        fields = [
+            'topic',
+            'description'
+        ]
 
 
 class CreateInDiscussion(ModelForm):
