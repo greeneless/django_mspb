@@ -12,23 +12,10 @@ from .views import (
 from . import views
 
 urlpatterns = [
-    path('', views.home, name='blog-home'),
-    path('user/<str:username>', UserPostListView.as_view(), name='user-posts'),
-    path('post/<int:pk>/', PostDetailView.as_view(), name='post-detail'),
-    path('post/new/', PostCreateView.as_view(), name='post-create'),
-    path('post/<int:pk>/update', PostUpdateView.as_view(), name='post-update'),
-    path('post/<int:pk>/delete', PostDeleteView.as_view(), name='post-delete'),
-    path('about/', views.about, name='blog-about'),
-    path('rmm-suite/administration', views.administration, name='blog-rmmsuite-administration'),
-    path('rmm-suite/how-do-i', views.how_do_i, name='blog-rmmsuite-how-do-i'),
-    path('about/staff', views.staff, name='blog-staff'),
-    path('contact/', views.contact, name='blog-contact'),
-    path('rmm-suite/', views.rmm_suite, name='blog-rmmsuite'),
-    path('rmm-suite/documentation', views.documentation, name='blog-rmmsuite-documentation'),
-    path('blog/', PostListView.as_view(), name='blog-blog'),
+    path('forum/', views.forum, name='forum-forum'),
+    path('forum/user/<str:username>', UserPostListView.as_view(), name='user-posts'),
+    path('forum/post/<int:pk>/', PostDetailView.as_view(), name='post-detail'),
+    path('forum/post/new/', PostCreateView.as_view(), name='post-create'),
+    path('forum/post/<int:pk>/update', PostUpdateView.as_view(), name='post-update'),
+    path('forum/post/<int:pk>/delete', PostDeleteView.as_view(), name='post-delete'),
 ]
-
-# Class based URL views look for :
-# # <app> + / + <model> + _ + <viewtype>
-# # blog/post_list
-

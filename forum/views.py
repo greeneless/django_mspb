@@ -11,10 +11,6 @@ from django.views.generic import (
 from .models import ForumPost
 
 
-def home(request):
-    return render(request, 'blog/home.html', {'title': 'Blog'})
-
-
 class PostListView(ListView):
     model = ForumPost
     template_name = 'blog/blog.html'  # <app> + / + <model> + _ + <viewtype>
@@ -79,34 +75,7 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         return False
 
 
-def about(request):
-    return render(request, 'blog/about.html', {'title': 'About'})
-
-
-def administration(request):
-    return render(request, 'blog/rmm-suite/administration.html', {'title': 'Admin Tools'})
-
-
-def contact(request):
-    return render(request, 'blog/contact.html', {'title': 'Contact Us'})
-
-
-def documentation(request):
-    return render(request, 'blog/rmm-suite/documentation.html', {'title': 'Technician Manuals'})
-
-
-def how_do_i(request):
-    return render(request, 'blog/rmm-suite/how-do-i.html', {'title': 'How Do I...'})
-
-
-def staff(request):
-    return render(request, 'blog/about/staff.html', {'title': 'Our Team'})
-
-
-def blog(request):
+def forum(request):
     context = {'posts': ForumPost.objects.all()}
-    return render(request, 'blog/blog.html', context)
+    return render(request, 'forum/forum.html', context)
 
-
-def rmm_suite(request):
-    return render(request, 'blog/rmm-suite.html', {'title': 'Tech Specs'})
