@@ -1,50 +1,52 @@
-{% extends 'blog\base.html' %}
+<!DOCTYPE html>
+{% extends 'base.html' %}
 {% block content %}
-<br><br>
-<body>
-        <h2>
-            Currently active forums: {{ count }}
-            <form method="POST" action="{% url 'add-in-forum' %}">
-                {% csrf_token %}
-            <button class="btn btn-primary" style="width:fit-content; padding: 4px; margin:10px;">Add more</button>
-            </form>
-        </h2>
-            <div class="card-columns" style="padding: 10px; margin: 20px;"></div>
+      <div class="row">
+        <div class="col-md-8">
+            {% if messages %}
+                {% for message in messages%}
+                    <div class="alert alert-{{ message.tags }}">
+                    {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+      </div>
+      <br><br>
+      <h2>Currently active forums: {{ count }}
+        <form method="POST" action="{% url 'add-in-forum' %}">
+          {% csrf_token %}
+          <button class="btn btn-primary" style="width:fit-content; padding: 4px; margin:10px;">Add more</button>
+        </form>
+      </h2>
+      <div class="card-columns" style="padding: 10px; margin: 20px;"></div>
+      {% for forum in forums %}
 
-
-            {% for forum in forums %}
-
-                <div class="card box container">
-                    <br>
-                    <h5 class="card-title">
-                        <a href='{{ forum.link }}'><h3>{{ forum.topic }}</h3></a>
-                        <div class="card-body container">
-                                <p>{{ forum.description }}</p>
-                            </h5>
-                            <hr>
-                            <p> Posted by: {{ forum.author }}</p>
-                            <hr>
-                            <h5>Discussion</h5>
-                            {% for discuss in discussions %}
-                            {% for objs in discuss %}
-                            {% if objs.forum == forum %}
-                               {{ objs.discuss }}
-                               <br>
-                            {% endif %}
-                            {% endfor %}
-                            {% endfor %}
-                            <form method="POST" action="{% url 'add-in-discussion' %}">
-                                {% csrf_token %}
-                                <br>
-                            <button class="btn btn-primary" style="width:fit-content; padding: 4px; margin:10px;">Reply</button>
-                                <br>
-                            </form>
-                        </div>
-                </div>
+      <div class="card box container">
+        <br>
+        <h5 class="card-title">
+          <a href='{{ forum.link }}'><h3>{{ forum.topic }}</h3></a>
+            <div class="card-body container">
+              <p>{{ forum.description }}</p>
             </div>
-            <br>
-
-            {% endfor %}
-</body>
-</html>
+        </h5>
+        <hr>
+        <p>Posted by: {{ forum.author }}</p>
+        <hr>
+        <h5>Discussion</h5>
+        {% for discuss in discussions %}
+          {% for objs in discuss %}
+            {% if objs.forum == forum %}
+              {{ objs.discuss }}
+               <br>
+            {% endif %}
+          {% endfor %}
+        {% endfor %}
+        <form method="POST" action="{% url 'add-in-discussion' %}">
+          {% csrf_token %}
+          <br><button class="btn btn-primary" style="width:fit-content; padding: 4px; margin:10px;">Reply</button><br>
+        </form>
+      </div>
+      <br>
+      {% endfor %}
 {% endblock content %}
