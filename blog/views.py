@@ -110,3 +110,7 @@ def blog(request):
 
 def rmm_suite(request):
     return render(request, 'blog/rmm-suite.html', {'title': 'Tech Specs'})
+
+
+def support_request(request):
+    return render(request, 'blog/rmm-suite/support-request.html', {'title': 'Open an Engineering Ticket'})

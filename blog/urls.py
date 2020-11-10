@@ -25,6 +25,7 @@ urlpatterns = [
     path('contact/', views.contact, name='blog-contact'),
     path('rmm-suite/', views.rmm_suite, name='blog-rmmsuite'),
     path('rmm-suite/documentation', views.documentation, name='blog-rmmsuite-documentation'),
+    path('rmm-suite/help', views.support_request, name='blog-rmmsuite-help'),
     path('blog/', PostListView.as_view(), name='blog-blog'),
 ]
 

@@ -1,0 +1,59 @@
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<br><br>
+<div data-question-alias="Email Address">
+	<label class="settinglabel" >Email Address</label>
+	<input type="text" size="30" class="form-control" onblur="validateOnChange(event);"/>
+	<label class="settinglabel">Customer Name</label>
+	<input type="text" size="30" class="form-control" onblur="validateOnChange(event);"/>
+	<label class="settinglabel">Agent MGID to Verify</label>
+	<input type="text" size="30" class="form-control" onblur="validateOnChange(event);"/>
+</div>
+<br>
+<div data-question-alias="Problem Severity">
+	<label class="settinglabel">Problem Severity</label>
+	<select class="form-control" onblur="validateOnChange(event);">
+		<option value="">Please select...</option>
+		<optgroup label="HIGH">
+			<option value="Policies not functioning">Policies not functioning</option>
+			<option value="Server Patching">Server Patching</option>
+			<option value="HIGH - Affects all automation">Other</option>
+		</optgroup>
+		<optgroup label="MEDIUM">
+			<option value="Agent Monitors">Agent Monitors</option>
+			<option value="Smart Monitors">Smart Monitors</option>
+			<option value="MEDIUM - Affects Specific Feature">Other</option>
+		</optgroup>
+		<optgroup label="LOW">
+			<option value="Offline Tools">Offline Tools</option>
+			<option value="Maintenance Tasks">Maintenance Tasks</option>
+			<option value="LOW">Other</option>
+		</optgroup>
+	</select>
+	<br>
+	<div class="row-4" data-question-alias="Problem Scope">
+      <form>
+      <label class="radio-inline">Single Agent
+        <input type="radio" name="optradio" style="margin-right: 35px;" checked>
+      </label>
+      <label class="radio-inline">Several Agents
+        <input type="radio" name="optradio" style="margin-right: 35px;">
+      </label>
+      <label class="radio-inline">Many Agents
+        <input type="radio" name="optradio" style="margin-right: 35px;">
+      </label>
+	  <label class="radio-inline">All Agents
+        <input type="radio" name="optradio" style="margin-right: 35px;">
+      </label>
+    </form>
+  </div>
+</div>
+<br>
+<div>
+	Issue Summary
+	<textarea class="form-control" rows="7"></textarea>
+</div>
+<br>
+
+{% endblock content %}
