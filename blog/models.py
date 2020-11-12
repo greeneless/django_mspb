@@ -16,3 +16,9 @@ class Post(models.Model):
     def get_absolute_url(self):
         return reverse('post-detail', kwargs={'pk': self.pk})
 
+
+class Support(models.Model):
+    agent_guid = models.CharField(max_length=256)
+    summary = models.TextField()
+    severity = models.CharField(max_length=256)
+    scope = models.CharField(max_length=256)

@@ -63,10 +63,3 @@ def profile(request):
 
     return render(request, 'users/profile.html', context)
 
-
-
-# Messages.success
-# Messages.info
-# Messages.warning
-# Messages.error
-# Messages.debug
