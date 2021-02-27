@@ -1,0 +1,9 @@
+@charset "UTF-8";
+
+div.product {
+    display: grid;
+    grid-template-columns: 3;
+    grid-template-rows: 2;
+    grid-template-area: "Core   EMM     ITP";
+}
+
